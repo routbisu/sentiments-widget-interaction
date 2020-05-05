@@ -1,17 +1,22 @@
 import React from 'react';
 import './TellUsMore.scss';
 
-const TellUsMore = () => {
+const TellUsMore = ({ onClose, onSubmit }) => {
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    onSubmit();
+  };
+
   return (
     <div className="tellus-more-container">
       <div className="header">
         Tell us more
-        <div className="close-btn">
+        <div className="close-btn" onClick={onClose}>
           <i className="im im-x-mark"></i>
         </div>
       </div>
       <div className="body">
-        <form>
+        <form onSubmit={handleSubmit}>
           <label>
             What did you like the most?
             <textarea placeholder="Tell us your experience (optional)" />

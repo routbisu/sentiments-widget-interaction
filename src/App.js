@@ -8,10 +8,11 @@ const widgets = {
   smiley: 'smiley',
   feedbackForm: 'feedbackForm',
   tellUsMoreForm: 'tellUsMoreForm',
+  thankYou: 'thankYou',
 };
 
 const App = () => {
-  const [currWidget, setCurrWidget] = useState(widgets.tellUsMoreForm);
+  const [currWidget, setCurrWidget] = useState(widgets.smiley);
 
   const clickHandler = (widgetType) => {
     setCurrWidget(widgetType);
@@ -28,12 +29,25 @@ const App = () => {
         return (
           <FeedbackForm
             onClose={() => clickHandler(widgets.smiley)}
-            onFeedbackSelect={() => clickHandler(widgets.smiley)}
+            onFeedbackSelect={() => clickHandler(widgets.tellUsMoreForm)}
           />
         );
 
       case widgets.tellUsMoreForm:
-        return <TellUsMore />;
+        return (
+          <TellUsMore
+            onClose={() => clickHandler(widgets.smiley)}
+            onSubmit={() => clickHandler(widgets.thankYou)}
+          />
+        );
+
+      case widgets.thankYou:
+        return (
+          <FeedbackForm
+            onClose={() => clickHandler(widgets.smiley)}
+            thanks={true}
+          />
+        );
     }
   };
 

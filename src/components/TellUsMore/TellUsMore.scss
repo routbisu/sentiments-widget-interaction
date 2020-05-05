@@ -6,9 +6,11 @@
   left: 50px;
   border-radius: 10px;
   width: 400px;
+  opacity: 0;
+  max-height: 170px;
   background: $bg-white;
   overflow: hidden;
-  animation: expandTellUsMore 1s ease-in-out 0.2s forwards;
+  animation: expandTellUsMore 1s ease-in-out forwards;
 
   .header {
     background: $dark-grey;
@@ -22,7 +24,7 @@
 
     .close-btn {
       position: absolute;
-      right: 20px;
+      right: 22px;
       top: 20px;
       cursor: pointer;
       i {
@@ -69,12 +71,15 @@
   }
 
   @keyframes expandTellUsMore {
-    from {
+    0% {
+      background: $bg-white;
       max-height: 170px;
+      opacity: 0;
     }
 
-    to {
+    100% {
       max-height: 1000px;
+      opacity: 1;
     }
   }
 }
