@@ -1,0 +1,80 @@
+@import '../../scss/variables.scss';
+
+.tellus-more-container {
+  position: fixed;
+  bottom: 50px;
+  left: 50px;
+  border-radius: 10px;
+  width: 400px;
+  background: $bg-white;
+  overflow: hidden;
+  animation: expandTellUsMore 1s ease-in-out 0.2s forwards;
+
+  .header {
+    background: $dark-grey;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    font-size: 1rem;
+    color: $white;
+    font-weight: 600;
+
+    .close-btn {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      cursor: pointer;
+      i {
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  .body {
+    padding: 20px;
+
+    form {
+      label {
+        font-size: 0.9rem;
+        color: $dark-grey;
+        font-weight: 600;
+        textarea,
+        input {
+          width: 100%;
+          font-weight: normal;
+          border: 1px solid $light-grey-border;
+          padding: 10px;
+          margin: 9px 0px;
+        }
+
+        textarea {
+          height: 120px;
+        }
+      }
+
+      .btn-section {
+        text-align: right;
+        margin-top: 10px;
+        button {
+          background: $dark-grey;
+          color: $bg-white;
+          padding: 10px 14px;
+          border-radius: 6px;
+          font-size: 0.9rem;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  @keyframes expandTellUsMore {
+    from {
+      max-height: 170px;
+    }
+
+    to {
+      max-height: 1000px;
+    }
+  }
+}

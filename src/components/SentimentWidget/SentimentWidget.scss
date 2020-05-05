@@ -1,0 +1,56 @@
+@import '../../scss/variables.scss';
+
+.sentiment-widget-component {
+  position: fixed;
+  left: 50px;
+  bottom: 50px;
+
+  .smiley-holder {
+    cursor: pointer;
+    position: relative;
+    box-shadow: 1px 1px 6px $dark-grey;
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border: 5px solid $dark-grey;
+    background: $yellow;
+
+    color: $white;
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    .content {
+      position: absolute;
+      top: 50%;
+      left: -200%;
+      width: 100%;
+      text-align: center;
+      transform: translate(-50%, -50%);
+    }
+
+    img {
+      width: 45px;
+    }
+
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      width: 190px;
+      background: $dark-grey;
+      transition: all 0.2s ease-in-out;
+
+      img {
+        opacity: 0;
+      }
+
+      .content {
+        left: 50%;
+        transition: all 0.3s ease-in-out;
+      }
+    }
+  }
+}
